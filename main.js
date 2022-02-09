@@ -1,4 +1,6 @@
-
+let rock = document.getElementById("rock");
+let paper = document.getElementById("paper");
+let scissors = document.getElementById("scissors")
 // computer function for random play
 function computerPlay(){
 // computer plays random weapon
@@ -61,27 +63,36 @@ function playRound(playerSelection, computerSelection){
 }
 // game function
 // set player scores
-
+let winningScore = 5;
 let playerScore = 0;
 let computerScore = 0;
 
-function game(){
+function game(playerChoice){
   // create for loop to loop through
-  for (let i = 0; i < 5; i++ ){
-    let playerSelection = prompt("Pick rock, paper or scissors");
+  while (winningScore < 5 ){
+    winningScore++;
+    console.log(winningScore);
+    let playerSelection = playerChoice;
     const computerSelection = computerPlay();
     console.log(playRound(playerSelection, computerSelection));
     console.log("Your score = " + playerScore);
     console.log("Computer's score = " + computerScore)
   }
-
-
-  // set computerSelection = computerPlay
-  // create playerSelection prompt
-  // console playround
-  // console your score
-  // console computer score
-
+  if (playerScore > computerScore) {
+    console.log("Player win!")
+  }
+  else {
+    console.log("computer wins!")
+  }
 }
+rock.addEventListener('click', () => {
+  game("rock");
+});
+paper.addEventListener('click', () => {
+  game("paper");
+});
+scissors.addEventListener('click', () => {
+  game("scissors");
+});
 
 game();
