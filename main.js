@@ -1,7 +1,12 @@
 let rock = document.getElementById("rock");
 let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
+let message = document.getElementById("message");
+console.log(message)
 const buttons = document.querySelectorAll('.btn');
+let resetButton = document.querySelectorAll('#reset');
+// reset game
+// resetButton.addEventListener('click', () => location.reload());
 // computer function for random play
 function computerPlay(){
 // computer plays random weapon
@@ -22,43 +27,43 @@ function playRound(playerSelection, computerSelection){
   // create logic for the game
   if (playerSelection === "rock"){
     if (computerSelection === "rock"){
-      return "it's a tie!";
+      message.innerText = "it's a tie!";
     }
     else if (computerSelection === "paper"){
       computerScore++;
-      return "computer wins!";
+      message.innerText = "computer wins!";
     }
     else{
       playerScore++;
-      return "You win! You beat the machine!";
+      message.innerText = "You win! You beat the machine!";
     }
   }
 
   if (playerSelection === "paper"){
     if (computerSelection === "rock"){
       playerScore++;
-      return "You win! You beat the machine!";
+      message.innerText = "You win! You beat the machine!";
     }
     else if (computerSelection === "scissors"){
       computerScore++;
-      return "computer wins!";
+      message.innerText = "computer wins!";
     }
     else{
-      return "it's a tie!";
+      message.innerText = "it's a tie!";
     }
   }
 
   if (playerSelection === "scissors"){
     if (computerSelection === "rock"){
       computerScore++;
-      return "computer wins!";
+      message.innerText = "computer wins!";
     }
     else if (computerSelection === "paper"){
       playerScore++;
-      return "You win! You beat the machine!";
+      message.innerText = "You win! You beat the machine!";
     }
     else {
-      return "it's a tie!";
+      rmessage.innerText = "it's a tie!";
     }
   }
 }
@@ -117,5 +122,6 @@ paper.addEventListener('click', () => {
 scissors.addEventListener('click', () => {
   game("scissors");
 });
+
 
 game();
