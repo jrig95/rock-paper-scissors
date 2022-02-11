@@ -5,8 +5,9 @@ let message = document.getElementById("message");
 console.log(message)
 const buttons = document.querySelectorAll('.btn');
 let resetButton = document.querySelectorAll('#reset');
-// reset game
-// resetButton.addEventListener('click', () => location.reload());
+const humanChoice = document.querySelector("#human-choice");
+const computerChoice = document.querySelector("#computer-choice");
+
 // computer function for random play
 function computerPlay(){
 // computer plays random weapon
@@ -20,11 +21,38 @@ else if (random < 0.67){
 else{
   return "paper"
 }
+  opponentChoice.classList.remove('fa-question-circle', 'fa-hand-paper', 'fa-hand-peace', 'fa-hand-rock');
+  opponentChoice.classList.add('rotate-315', `fa-hand-${opponentMove === 'scissors' ? 'peace' : opponentMove}`);
+
+  return opponentMove;
 }
-console.log(computerPlay());
+
 // function to play round
 function playRound(playerSelection, computerSelection){
   // create logic for the game
+  // computerChoice.className = "question";
+  if (playerSelection == 'rock') {
+    humanChoice.className = 'rock';
+    computerChoice.className = computerSelection;
+  }
+  else if (playerSelection == 'paper') {
+    humanChoice.className = 'paper';
+    computerChoice.className = computerSelection;
+  }
+  else if (playerSelection == 'scissors') {
+    humanChoice.className = 'scissors';
+    computerChoice.className = computerSelection;
+  }
+  // if (computerSelection == 'rock') {
+  //   computerChoice.className = 'rock';
+  // }
+  // else if (computerSelection == 'paper') {
+  //   computerChoice.className = 'paper';
+  // }
+  // else if (computerSelection == 'scissors') {
+  //   computerChoice.className = 'scissors';
+  // }
+
   if (playerSelection === "rock"){
     if (computerSelection === "rock"){
       message.innerText = "it's a tie!";
@@ -76,28 +104,24 @@ function disableButtons() {
 }
 // game function
 // set player scores
-winningScore = 5;
+
 let playerScore = 0;
 let computerScore = 0;
 
 function updateScore(playerScore, computerScore) {
-  // const score = document.querySelector('#score');
   let human = document.querySelector('#player-score');
   human.innerText = `Player Score ${playerScore}`
   let computer = document.querySelector('#computer-score');
   computer.innerText = `Computer Score ${computerScore}`
-  // score.innerText = `Score ${playerScore} - ${computerScore}`
-  // if (playerScore === 5 || computerScore === 5) {
-  //   setTimeout(() => finishGame(playerScore, computerScore), 200)
-  // }
 }
 
 
 function game(playerChoice){
   // create for loop to loop through
-
+  computerChoice.className="question";
     let playerSelection = playerChoice;
     const computerSelection = computerPlay();
+    console.log(computerPlay())
     console.log(playRound(playerSelection, computerSelection));
     console.log("Your score = " + playerScore);
     console.log("Computer's score = " + computerScore)
@@ -112,6 +136,7 @@ function game(playerChoice){
 
   }
   updateScore(playerScore, computerScore);
+  // showChoices(playerSelection, computerSelection);
 }
 rock.addEventListener('click', () => {
   game("rock");

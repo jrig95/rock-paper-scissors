@@ -17,6 +17,58 @@
   padding: 10px;
 }
 
+.rock{
+  background-image: url('images/rock.png');
+  height: 70px;
+  padding: 5px;
+  width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+.paper{
+   background-image: url('images/paper.png');
+     height: 70px;
+  padding: 5px;
+  width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+.scissors{
+    background-image: url('images/scissors.png');
+      height: 70px;
+  padding: 5px;
+  width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+.question{
+  background-image: url('images/question.png');
+      height: 70px;
+  padding: 5px;
+  width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
 .rock img{
   height: 70px;
   padding: 5px;
