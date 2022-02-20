@@ -21,10 +21,6 @@ else if (random < 0.67){
 else{
   return "paper"
 }
-  opponentChoice.classList.remove('fa-question-circle', 'fa-hand-paper', 'fa-hand-peace', 'fa-hand-rock');
-  opponentChoice.classList.add('rotate-315', `fa-hand-${opponentMove === 'scissors' ? 'peace' : opponentMove}`);
-
-  return opponentMove;
 }
 
 // function to play round
@@ -91,7 +87,7 @@ function playRound(playerSelection, computerSelection){
       message.innerText = "You win! You beat the machine!";
     }
     else {
-      rmessage.innerText = "it's a tie!";
+      message.innerText = "it's a tie!";
     }
   }
 }
@@ -110,9 +106,9 @@ let computerScore = 0;
 
 function updateScore(playerScore, computerScore) {
   let human = document.querySelector('#player-score');
-  human.innerText = `Player Score ${playerScore}`
+  human.innerText = `Player Score: ${playerScore}`
   let computer = document.querySelector('#computer-score');
-  computer.innerText = `Computer Score ${computerScore}`
+  computer.innerText = `Computer Score: ${computerScore}`
 }
 
 
